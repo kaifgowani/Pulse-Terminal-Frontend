@@ -14,7 +14,7 @@ import { formatCurrency } from '../utils/formatCurrency';
 import { formatCurrency } from '../utils/formatCurrency';
 import { API_URL } from '../utils/config';
 import { fetchApi } from '../utils/apiClient';
-const CATEGORIES = ['Indices', 'Stocks', 'Crypto', 'Currencies', 'Commodities'];
+const CATEGORIES = ['Indices', 'Stocks', 'ETFs', 'Bonds', 'Crypto', 'Currencies', 'Commodities'];
 
 export default function MarketsScreen() {
   const dispatch = useDispatch<AppDispatch>();
@@ -29,8 +29,8 @@ export default function MarketsScreen() {
   // Fetch regular category assets
   useEffect(() => {
     if (searchQuery.length > 0) return;
-    dispatch(fetchAssets(activeCategory));
-    const interval = setInterval(() => dispatch(fetchAssets(activeCategory)), 10000);
+    dispatch(fetchAssets({ category: activeCategory }));
+    const interval = setInterval(() => dispatch(fetchAssets({ category: activeCategory })), 10000);
     return () => clearInterval(interval);
   }, [dispatch, activeCategory, searchQuery]);
 

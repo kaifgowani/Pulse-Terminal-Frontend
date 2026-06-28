@@ -29,14 +29,14 @@ const initialState: AssetsState = {
   error: null,
 };
 
-export const fetchAssets = createAsyncThunk('assets/fetchAssets', async (category?: string) => {
-  const url = category ? `/api/assets/real?category=${encodeURIComponent(category)}` : `/api/assets/real`;
+export const fetchAssets = createAsyncThunk('assets/fetchAssets', async (params: { category?: string, include?: string } = {}) => {
+  const url = `/api/assets/real?category=${encodeURIComponent(params.category || 'Indices')}${params.include ? `&include=${encodeURIComponent(params.include)}` : ''}`;
   const response = await fetchApi(url);
   if (!response.ok) {
     throw new Error('Failed to fetch assets');
   }
   const data = await response.json();
-  return { category: category || "All", data: data as Asset[] };
+  return { category: params.category || 'Indices', data: data as Asset[] };
 });
 
 const assetsSlice = createSlice({

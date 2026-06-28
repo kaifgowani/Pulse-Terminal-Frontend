@@ -711,11 +711,6 @@ const styles = StyleSheet.create({
   rangeTextActive: {
     color: theme.colors.primary,
   },
-  chartContainer: {
-    height: 250,
-    marginHorizontal: 20,
-    justifyContent: 'center',
-  },
   contentContainer: {
     paddingHorizontal: 20,
   },
@@ -797,6 +792,19 @@ const styles = StyleSheet.create({
     backgroundColor: theme.colors.card,
     borderRadius: 12,
     padding: 20,
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: 10,
+    paddingHorizontal: 15,
+  },
+  modalBtn: {
+    padding: 10,
+    borderRadius: 8,
+    backgroundColor: theme.colors.surface,
+    marginBottom: 8,
   },
   modalHeader: {
     flexDirection: 'row',

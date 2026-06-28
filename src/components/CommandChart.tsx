@@ -151,13 +151,7 @@ export const CommandChart: React.FC<CommandChartProps> = ({ history, technicalDa
       {/* Main Price Chart */}
       <View style={styles.chartWrapper}>
         <Canvas style={{ width: chartWidth, height: mainChartHeight }} pointerEvents="none">
-          <Path path={gradientPath}>
-            <SkiaLinearGradient
-              start={vec(0, 0)}
-              end={vec(0, mainChartHeight)}
-              colors={[`${color}80`, `${color}00`]}
-            />
-          </Path>
+          
           <Path path={pricePath} style="stroke" strokeWidth={2} color={color} />
           <Path path={smaPath} style="stroke" strokeWidth={1.5} color="#ffb74d" />
         </Canvas>

@@ -29,7 +29,7 @@ export default function CommandCenterScreen() {
   const [activeCategory, setActiveCategory] = useState('Indices');
   const { categoryAssets, status } = useSelector((state: RootState) => state.assets);
   const assets = categoryAssets[activeCategory] || [];
-  const CATEGORIES = ['Indices', 'Stocks', 'Crypto', 'Currencies', 'Commodities'];
+  const CATEGORIES = ['Indices', 'Stocks', 'ETFs', 'Bonds', 'Crypto', 'Currencies', 'Commodities'];
 
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState<any[]>([]);
@@ -59,8 +59,8 @@ export default function CommandCenterScreen() {
   }, [searchQuery]);
 
   useEffect(() => {
-    dispatch(fetchAssets(activeCategory));
-    const interval = setInterval(() => dispatch(fetchAssets(activeCategory)), 10000);
+    dispatch(fetchAssets({ category: activeCategory, include: activeAsset?.symbol }));
+    const interval = setInterval(() => dispatch(fetchAssets({ category: activeCategory, include: activeAsset?.symbol })), 10000);
     return () => clearInterval(interval);
   }, [dispatch, activeCategory]);
 
