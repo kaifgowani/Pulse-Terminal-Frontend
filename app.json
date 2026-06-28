@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "power-terminal-mobile",
-    "slug": "power-terminal-mobile",
+    "name": "Pulse Terminal",
+    "slug": "pulse-terminal",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,10 +16,16 @@
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.kaif_koder.pulseterminal"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7d594db8-ae73-4b45-90a2-b718b630cc43"
+      }
     }
   }
 }
